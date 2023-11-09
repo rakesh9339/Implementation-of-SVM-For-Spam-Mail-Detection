@@ -8,40 +8,26 @@ To write a program to implement the SVM For Spam Mail Detection.
 2. Anaconda – Python 3.7 Installation / Jupyter notebook
 
 ## Algorithm
-
-1)Collect a labeled dataset of emails, distinguishing between spam and non-spam.
-    
-2)Preprocess the email data by removing unnecessary characters, converting to lowercase, removing stop words, and performing stemming or lemmatization.
-    
-3)Extract features from the preprocessed text using techniques like Bag-of-Words or TF-IDF.
-  
-4)Split the dataset into a training set and a test set.
-    
-5)Train an SVM model using the training set, selecting the appropriate kernel function and hyperparameters.
-    
-6)Evaluate the trained model using the test set, considering metrics such as accuracy, precision, recall, and F1 score.
-    
-7)Optimize the model's performance by tuning its hyperparameters through techniques like grid search or random search.
-    
-8)Deploy the trained and fine-tuned model for real-world use, integrating it into an email server or application.
-    
-9)Monitor the model's performance and periodically update it with new data or adjust hyperparameters as needed.
+1. Import the necessary packages.
+2. Read the given csv file and display the few contents of the data.
+3. Assign the features for x and y respectively.
+4. Split the x and y sets into train and test sets.
+5. Convert the Alphabetical data to numeric using CountVectorizer.
+6. Predict the number of spam in the data using SVC (C-Support Vector Classification) method of SVM (Support vector machine) in sklearn library.
+7. Find the accuracy of the model.
+ 
 
 ## Program:
 ```
+/*
 Program to implement the SVM For Spam Mail Detection..
-Developed by: RAKESH JS
-RegisterNumber: 212222230115
-```
-``` PYTHON
-import chardet
-file='/content/spam.csv'
-with open(file,'rb') as rawdata:
-  result = chardet.detect(rawdata.read(100000))
-result
+Developed by: Mukil kumar v
+RegisterNumber:  212222230087
+*/
+
 
 import pandas as pd
-data=pd.read_csv('/content/spam.csv',encoding='Windows-1252')
+data=pd.read_csv("spam.csv",encoding='latin-1')
 
 data.head()
 
@@ -64,6 +50,7 @@ x_test=cv.transform(x_test)
 from sklearn.svm import SVC
 svc=SVC()
 svc.fit(x_train,y_train)
+
 y_pred=svc.predict(x_test)
 y_pred
 
@@ -71,24 +58,31 @@ from sklearn import metrics
 accuracy=metrics.accuracy_score(y_test,y_pred)
 accuracy
 ```
+
 ## Output:
-### 1. Result output
-![image](https://github.com/aldrinlijo04/Implementation-of-SVM-For-Spam-Mail-Detection/assets/118544279/c08810ba-4b33-43e0-86b9-88e149733769)
 
-### 2. data.head() 
-![image](https://github.com/aldrinlijo04/Implementation-of-SVM-For-Spam-Mail-Detection/assets/118544279/06725080-0126-4ff8-8a80-bb89d4c3addc)
+### data.head()
+![Screenshot 2023-11-02 000307](https://github.com/Roselinjovita/Implementation-of-SVM-For-Spam-Mail-Detection/assets/119104296/f25a1488-2cf4-401c-b9a1-c718528f7009)
 
-### 3. data.info()
-![image](https://github.com/aldrinlijo04/Implementation-of-SVM-For-Spam-Mail-Detection/assets/118544279/0bdf2600-0403-4357-a19b-411728f33895)
 
-### 4. data.isnull().sum()
-![image](https://github.com/aldrinlijo04/Implementation-of-SVM-For-Spam-Mail-Detection/assets/118544279/9088861a-060c-4063-9a9b-aac56267da47)
+### data.info()
 
-### 5. Y_prediction value
-![image](https://github.com/aldrinlijo04/Implementation-of-SVM-For-Spam-Mail-Detection/assets/118544279/f05da199-a5b1-49a4-ab2c-e431e481082d)
+![Screenshot 2023-11-02 000315](https://github.com/Roselinjovita/Implementation-of-SVM-For-Spam-Mail-Detection/assets/119104296/701258ca-4918-4d2f-b242-e292c007eb6b)
 
-### 6. Accuracy value
-![image](https://github.com/aldrinlijo04/Implementation-of-SVM-For-Spam-Mail-Detection/assets/118544279/ba64d866-04f4-48d6-8d5b-fb253524473a)
+
+### data.isnull().sum()
+
+
+![Screenshot 2023-11-02 000327](https://github.com/Roselinjovita/Implementation-of-SVM-For-Spam-Mail-Detection/assets/119104296/f630a7bd-8b5b-4a6b-9339-efc41656d1a6)
+
+### y_prediction value
+
+![Screenshot 2023-11-02 000336](https://github.com/Roselinjovita/Implementation-of-SVM-For-Spam-Mail-Detection/assets/119104296/9f5f562a-6191-47cd-a533-57677ea21f50)
+
+### Accuracy value
+![Screenshot 2023-11-02 000342](https://github.com/Roselinjovita/Implementation-of-SVM-For-Spam-Mail-Detection/assets/119104296/22fc6d5f-3a59-4a8f-bf6e-5cc76de836a0)
+
+
 
 ## Result:
 Thus the program to implement the SVM For Spam Mail Detection is written and verified using python programming.
